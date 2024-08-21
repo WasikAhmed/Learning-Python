@@ -1,5 +1,6 @@
 from .word_provider import WordProvider
 from .player import Player
+from .user import User
 
 
 class GameManager:
@@ -8,8 +9,10 @@ class GameManager:
         self.player = Player()
         self.max_attempts = max_attempts
         self.attempts = 0
+        self.user = None
 
     def start_game(self):
+        self.authenticate_user()
         word = self.word_provider.get_random_word()
         anagram = ''.join(sorted(word))
 
@@ -22,15 +25,45 @@ class GameManager:
             self.attempts += 1
             if self.check_guess(guess, word):
                 print("Congratulations!!! You've guessed the word correctly.")
-                break
+                self.user.update_stat(won=True)
+                self.user.save_user()
+                return  # Exit the loop if the user wins
             else:
-                remaining_attempts = self.max_attempts - self.attempts
+                remaining_attempts = self.max_attempts - self.attempts  # Corrected this line
                 if remaining_attempts > 0:
                     print(f"Incorrect guess! You have {remaining_attempts} attempts left. Try again.")
                 else:
                     print("Incorrect guess! You have no attempts left.")
-                    print(f"You've failed! The correct word was: {word}")
+
+        print(f"You've failed! The correct word was: {word}")
+        self.user.update_stat(won=False)
+        self.user.save_user()
 
     @staticmethod
     def check_guess(guess, word):
         return guess.lower() == word.lower()
+
+    def authenticate_user(self):
+        print("Please log in or sign up:")
+        while True:
+            choice = input("Do you have an account? (yes/no): ").strip().lower()
+            if choice == 'yes':
+                username = input("Enter your username: ").strip()
+                password = input("Enter your password: ").strip()
+                user = User.authenticate(username, password)
+                if user:
+                    print("Login successful!")
+                    self.user = user
+                    break
+                else:
+                    print("Incorrect username or password. Please try again.")
+            elif choice == 'no':
+                username = input("Choose a username: ").strip()
+                password = input("Choose a password: ").strip()
+                user = User(username, password)
+                user.save_user()
+                print("Account created successfully!")
+                self.user = user
+                break
+            else:
+                print("Invalid choice. Please enter 'yes' or 'no'.")
