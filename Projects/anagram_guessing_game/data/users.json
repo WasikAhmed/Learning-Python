@@ -2,6 +2,26 @@
     "wasik": {
         "password": "5f567bf73fa1d9ca30d6fb7700f2cd76a3ad909ef5ee16a89f5e77205079b0a7",
         "wins": 1,
+        "losses": 2
+    },
+    "apon": {
+        "password": "5ccffa4964dc16be06771f4cb898907dfd22e486fca7a620d67214a978c9dc34",
+        "wins": 0,
         "losses": 1
+    },
+    "gg": {
+        "password": "cbd3cfb9b9f51bbbfbf08759e243f5b3519cbf6ecc219ee95fe7c667e32c0a8d",
+        "wins": 1,
+        "losses": 2
+    },
+    "sumaya": {
+        "password": "2e44e08484ab33f1a1ae6c5b975fdc1e2884fddf1715c4ba051db952857b20c6",
+        "wins": 1,
+        "losses": 0
+    },
+    "sumu": {
+        "password": "073363f638d802ebb90b9ca0b482f2809088d7c2446ac7bb66eba3080a734ef6",
+        "wins": 1,
+        "losses": 0
     }
 }
