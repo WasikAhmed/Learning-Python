@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  calculator:
+    build: .
+    container_name: console-calculator-container
+    stdin_open: true
+    tty: true
+    command:
+      - python main.py
