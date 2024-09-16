@@ -1,0 +1,11 @@
+version: '3.8'
+
+
+services:
+  anagram_guessing_game:
+    build: .
+    container_name: anagram-guessing-game-container
+    stdin_open: true
+    tty: true
+    command:
+      - python main.py

@@ -1,7 +1,7 @@
 {
     "wasik": {
         "password": "5f567bf73fa1d9ca30d6fb7700f2cd76a3ad909ef5ee16a89f5e77205079b0a7",
-        "wins": 1,
+        "wins": 2,
         "losses": 2
     },
     "apon": {
@@ -19,9 +19,9 @@
         "wins": 1,
         "losses": 0
     },
-    "sumu": {
-        "password": "073363f638d802ebb90b9ca0b482f2809088d7c2446ac7bb66eba3080a734ef6",
-        "wins": 1,
-        "losses": 0
+    "sazzad": {
+        "password": "88f1821b3122366261d5778a084a366579103e32615662f76518460a0eb3e96f",
+        "wins": 0,
+        "losses": 1
     }
 }
